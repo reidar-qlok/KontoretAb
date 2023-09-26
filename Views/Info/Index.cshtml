@@ -1,0 +1,73 @@
+﻿@model IEnumerable<ProjectList>
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+```csharp
+model IEnumerable<ProjectList>
+    @{
+    }
+    <h1>Projectöversikt</h1>
+    <div>
+        <a asp-controller="Info" asp-action="CreateInfo" class="btn btn-primary">Create new Project</a>
+    </div>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model=>model.Employees.FirstMidName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model=>model.Employees.LastName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model=>model.Projects.ProjectName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model=>model.Projects.Description)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model=>model.Start)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model=>model.Stop)
+                </th>
+                <th>
+
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelitem=>item.Employees.FirstMidName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelitem=>item.Employees.LastName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelitem=>item.Projects.ProjectName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelitem=>item.Projects.Description)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelitem=>item.Start)
+
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelitem=>item.Stop)
+                    </td>
+                    <td>
+                        <a asp-action="UpdateInfo" asp-route-id="@item.ProjectListId">Edit</a> |
+                        <a asp-action="Details" asp-route-id="@item.ProjectListId">Details</a> |
+                        <a asp-action="Delete" asp-route-id="@item.ProjectListId">Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    ```
